@@ -1,16 +1,12 @@
 {
-  "name": "@heartexlabs/label-studio",
-  "version": "1.4.0",
+  "name": "@overviewai/label-studio",
+  "version": "1.0.1-478-g4cfaa28",
   "description": "Data Labeling Tool that is backend agnostic and can be embedded into your applications",
-  "homepage": "https://labelstud.io",
-  "author": {
-    "name": "Heartex Labs",
-    "url": "https://github.com/heartexlabs"
-  },
+  "author": "Overview.ai (https://github.com/OverviewCorporation)",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/heartexlabs/label-studio-frontend.git"
+    "url": "https://github.com/OverviewCorporation/label-studio-frontend.git"
   },
   "browser": "build/static/js/main.js",
   "main": "build/static/js/main.js",
@@ -144,7 +140,6 @@
     "docs:generate": "node scripts/create-docs.js",
     "lint:write": "eslint --debug src/ --fix",
     "lint": "eslint --debug src/",
-    "prepublishOnly": "npm run test && npm run build:final",
     "prettier-styles": "prettier --write src/**/*.{css,scss}",
     "prettier": "prettier --write src/**/*.js",
     "size": "npm run build && size-limit",
@@ -236,5 +231,12 @@
   },
   "nohoist": [
     "**/babel-preset-react-app/@babel/runtime"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/OverviewCorporation/label-studio-frontend/issues"
+  },
+  "homepage": "https://github.com/OverviewCorporation/label-studio-frontend#readme",
+  "directories": {
+    "example": "examples"
+  }
 }
