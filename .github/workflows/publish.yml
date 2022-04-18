@@ -36,9 +36,6 @@ jobs:
       - name: Install dependencies and build 🔧
         run: NODE_ENV=${{ github.event.inputs.environment}} npm ci && npm run build:final
       - name: Publish package on NPM 📦
-        run:
-          - npm config set git-tag-version=false
-          - npm version $(git describe --tags) 
-          - npm publish
+        run: npm config set git-tag-version=false && npm version $(git describe --tags) && npm publish 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
