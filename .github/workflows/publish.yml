@@ -6,10 +6,10 @@ on:
         type: choice
         description: "Environment to run the configuration step in"
         required: true
-        default: "develop"
+        default: "development"
         options:
-          - develop
-          - production
+          - development
+          - none
 jobs:
   build:
     runs-on: ubuntu-latest
