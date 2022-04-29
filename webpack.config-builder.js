@@ -165,7 +165,7 @@ const cssLoader = (withLocalIdent = true) => {
   const cssLoader = {
     loader: "css-loader",
     options: {
-      sourceMap: true,
+      sourceMap: false,
       modules: {
         localIdentName: localIdent,
       },
@@ -175,7 +175,7 @@ const cssLoader = (withLocalIdent = true) => {
   const postcssLoader = {
     loader: "postcss-loader",
     options: {
-      sourceMap: true,
+      sourceMap: false,
       postcssOptions: {
         plugins: [
           require("autoprefixer")({
@@ -189,7 +189,7 @@ const cssLoader = (withLocalIdent = true) => {
   const stylusLoader = {
     loader: "stylus-loader",
     options: {
-      sourceMap: true,
+      sourceMap: false,
       stylusOptions: {
         import: [path.resolve(__dirname, "./src/themes/default/colors.styl")],
       },
@@ -350,7 +350,7 @@ module.exports = ({withDevServer = true} = {}) => ({
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
+              sourceMap: false,
               importLoaders: 2,
               esModule: false,
               modules: {
@@ -366,7 +366,7 @@ module.exports = ({withDevServer = true} = {}) => ({
           {
             loader: "sass-loader",
             options: {
-              sourceMap: true,
+              sourceMap: false,
             },
           },
         ],

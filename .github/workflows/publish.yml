@@ -6,10 +6,11 @@ on:
         type: choice
         description: "Environment to run the configuration step in"
         required: true
-        default: "develop"
+        default: "development"
         options:
-          - develop
           - production
+          - development
+          - none
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,7 +35,7 @@ jobs:
           node-version: '17.8.0'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
-        run: NODE_ENV=${{ github.event.inputs.environment}} npm ci && npm i webpack-cli && NODE_ENV=${{ github.event.inputs.environment}} npm run build:final
+        run: NODE_ENV=${{ github.event.inputs.environment }} npm ci && npm i webpack-cli && NODE_ENV=${{ github.event.inputs.environment}} npm run build:module
       - name: Publish package on NPM 📦
         run: npm config set git-tag-version=false && npm version $(git describe --tags) && npm publish --access public
         env:

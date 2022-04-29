@@ -14,7 +14,7 @@ Frontend, as its name suggests, is the frontend library developed using React an
 ## Install
 
 ```bash
-npm install @heartexlabs/label-studio
+npm install @overviewai/label-studio
 ```
 
 ## Usage
@@ -96,8 +96,8 @@ import 'label-studio/build/static/css/main.css';
 
 1. Clone the repository
    ```bash
-   git clone git@github.com:heartexlabs/label-studio-frontend.git
-   # or: git clone https://github.com/heartexlabs/label-studio-frontend.git
+   git clone git@github.com:overviewai/label-studio-frontend.git
+   # or: git clone https://github.com/overviewai/label-studio-frontend.git
    cd label-studio-frontend
    ```
 
@@ -127,10 +127,7 @@ Label Studio for Teams is our enterprise edition (cloud & on-prem), that include
 
 | Project | Description |
 |-|-|
-| [label-studio](https://github.com/heartexlabs/label-studio) | Server part, distributed as a pip package |
 | label-studio-frontend | Frontend part, written in JavaScript and React, can be embedded into your application |
-| [label-studio-converter](https://github.com/heartexlabs/label-studio-converter) | Encode labels into the format of your favorite machine learning library |
-| [label-studio-transformers](https://github.com/heartexlabs/label-studio-transformers) | Transformers library connected and configured for use with label studio |
 
 ## License
 
