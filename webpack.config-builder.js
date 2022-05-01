@@ -4,7 +4,6 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
 const TerserPlugin = require("terser-webpack-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { EnvironmentPlugin, DefinePlugin } = require("webpack");
@@ -46,13 +45,13 @@ const LOCAL_ENV = {
 const babelOptimizeOptions = () => {
   return BUILD.NO_MINIMIZE
     ? {
-        compact: false,
-        cacheCompression: false,
-      }
+      compact: false,
+      cacheCompression: false,
+    }
     : {
-        compact: true,
-        cacheCompression: true,
-      };
+      compact: true,
+      cacheCompression: true,
+    };
 };
 
 const optimizer = () => {
@@ -67,9 +66,6 @@ const optimizer = () => {
       new TerserPlugin({
         parallel: true,
       }),
-      new CssMinimizerPlugin({
-        parallel: true,
-      }),
     )
   }
 
@@ -80,7 +76,7 @@ const optimizer = () => {
 
   if (BUILD.NO_CHUNKS) {
     result.runtimeChunk = false;
-    result.splitChunks = {cacheGroups: { default: false }}
+    result.splitChunks = { cacheGroups: { default: false } }
   }
 
   return result;
@@ -270,7 +266,7 @@ if (BUILD.DIAGNOSTICS) {
 
 const sourceMap = isDevelopment ? "cheap-module-source-map" : "source-map";
 
-module.exports = ({withDevServer = true} = {}) => ({
+module.exports = ({ withDevServer = true } = {}) => ({
   mode: DEFAULT_NODE_ENV || "development",
   devtool: sourceMap,
   ...(withDevServer ? devServer() : {}),
