@@ -38,6 +38,8 @@ const Annotation = types
       ), null,
     ),
 
+    dataUrl: types.maybeNull(types.string),
+
     createdDate: types.optional(types.string, Utils.UDate.currentISODate()),
     createdAgo: types.maybeNull(types.string),
     createdBy: types.optional(types.string, "Admin"),
@@ -993,6 +995,10 @@ const Annotation = types
       self.regions.forEach(r => {
         r.dynamic && r.deleteRegion();
       });
+    },
+
+    updateDataUrl(url) {
+      self.dataUrl = url;
     },
 
     acceptSuggestion(id) {
