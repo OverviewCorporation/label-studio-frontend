@@ -309,6 +309,9 @@ const RegionsMixin = types
           self.origin = 'prediction-changed';
         }
 
+
+        self.annotation.updateDataUrl(self.parent?.stageRef?.toDataURL());
+
         // everything above is related to dynamic preannotations
         if (!self.dynamic || self.fromSuggestion) return;
 
