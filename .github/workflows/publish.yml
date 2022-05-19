@@ -32,8 +32,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '17.8.0'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "17.8.0"
+          registry-url: "https://registry.npmjs.org"
       - name: Install dependencies and build 🔧
         run: NODE_ENV=${{ github.event.inputs.environment }} npm ci && npm i webpack-cli && NODE_ENV=${{ github.event.inputs.environment}} npm run build:module
       - name: Publish package on NPM 📦
