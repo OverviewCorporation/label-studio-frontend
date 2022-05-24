@@ -1,6 +1,6 @@
 {
   "name": "@overviewai/label-studio",
-  "version": "1.0.1-553-gc7ca389b",
+  "version": "1.0.1-556-g0c5db840",
   "description": "Data Labeling Tool that is backend agnostic and can be embedded into your applications",
   "author": "Overview.ai (https://github.com/OverviewCorporation)",
   "license": "Apache-2.0",
