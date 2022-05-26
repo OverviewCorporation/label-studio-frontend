@@ -141,6 +141,7 @@ const _Tool = types
 
       setStroke(val) {
         self.strokeWidth = val;
+        self.updateCursor();
       },
 
       afterUpdateSelected() {
