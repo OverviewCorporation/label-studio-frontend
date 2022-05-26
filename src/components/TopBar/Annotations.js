@@ -13,6 +13,7 @@ export const Annotations = observer(({ store, annotationStore }) => {
   const dropdownRef = useRef();
   const [opened, setOpened] = useState(false);
   const enableAnnotations = store.hasInterface('annotations:tabs');
+  const hideUser = store.hasInterface('annotations:hide-user');
   const enablePredictions = store.hasInterface('predictions:tabs');
   const enableCreateAnnotation = store.hasInterface('annotations:add-new');
   const groundTrurhEnabled = store.hasInterface('ground-truth');
@@ -47,6 +48,9 @@ export const Annotations = observer(({ store, annotationStore }) => {
 
     return () => document.removeEventListener('click', handleClick);
   }, []);
+  if (hideUser) {
+    return null;
+  }
 
   return (enableAnnotations || enablePredictions || enableCreateAnnotation) ? (
     <Elem name="section" mod={{ flat: true }}>

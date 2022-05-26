@@ -208,7 +208,7 @@ class App extends Component {
       </Block>
     );
 
-    const newUIEnabled = isFF(FF_DEV_1170);
+    const newUIEnabled = isFF(FF_DEV_1170) || store.hasInterface('show-new-ui');
 
     return (
       <Block name="editor" mod={{ fullscreen: settings.fullscreen }}>
