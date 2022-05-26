@@ -127,8 +127,8 @@ function brushSizeCircle(size) {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
-  canvas.width = size * 4 + 8;
-  canvas.height = size * 4 + 8;
+  canvas.width = size * 2 + 8;
+  canvas.height = size * 2 + 8;
 
   ctx.beginPath();
   ctx.arc(size / 2 + 4, size / 2 + 4, size / 2, 0, 2 * Math.PI, false);
