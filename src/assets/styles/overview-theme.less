@@ -1,0 +1,14 @@
+/* Unforunately LS only supports SASS 
+* which isn't easily convertible to less.
+* There is way to do so based on this article:
+* https://dev.to/agmm/simple-way-of-modifying-ant-design-default-theme-3g4h
+* STEPS:
+* mv theme.less overview/label-studio-frontend/node_modules/antd/dist
+* cd overview/label-studio-frontend/node_modules/antd/dist
+* npx lessc --js my-theme.less antd-override.css 
+* copy antd-override.css back to this directory.
+*/
+
+@import "./antd.less";   // Import Ant Design styles by less entry
+
+@primary-color: #532EE3;                         // primary color for all components
