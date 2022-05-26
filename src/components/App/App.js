@@ -224,9 +224,10 @@ class App extends Component {
           <Block name="wrapper" mod={{ viewAll: viewingAll, bsp: settings.bottomSidePanel || newUIEnabled }}>
             {newUIEnabled ? (
               <SidePanels
-                panelsHidden={viewingAll}
+                panelsHidden={store.hasInterface('hide-panels-override') ?? viewingAll}
                 currentEntity={as.selected}
                 regions={as.selected.regionStore}
+                store={store}
               >
                 {mainContent}
               </SidePanels>

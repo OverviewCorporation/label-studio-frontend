@@ -216,7 +216,7 @@ function treeToModel(html: string, store: { task: { dataObj: Record<string, any>
  * Render items of tree
  * @param {*} el
  */
-function renderItem(el: IAnyStateTreeNode, includeKey = true) {
+function renderItem(el: IAnyStateTreeNode, includeKey = true, styles = {}) {
   const type = getType(el);
   const identifierAttribute = type.identifierAttribute;
   const typeName = type.name;
@@ -227,7 +227,7 @@ function renderItem(el: IAnyStateTreeNode, includeKey = true) {
   }
   const key = (identifierAttribute && el[identifierAttribute]) || guidGenerator();
 
-  return <View key={includeKey ? key : undefined} item={el} />;
+  return <View key={includeKey ? key : undefined} item={el} styles={styles} />;
 }
 
 /**
