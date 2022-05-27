@@ -1035,7 +1035,19 @@ export const Annotation = types
 
     async getDataUrl() {
       self.unselectAreas();
-      await delay(700);
+      // This is hacky but we need to make sure all
+      // regions are unselected AND the data url is
+      // up to date. There is a race condition between them
+      // so we need to wait a bit. So far this has reliably
+      // worked in testing.
+      self.regions.forEach(r => {
+        r.notifyDrawingFinished();
+      });
+      await delay(1000);
+      self.regions.forEach(r => {
+        r.notifyDrawingFinished();
+      });
+      await delay(1000);
       return self.dataUrl;
     },
 
