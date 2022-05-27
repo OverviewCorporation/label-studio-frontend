@@ -1033,8 +1033,25 @@ export const Annotation = types
       self.dataUrl = url;
     },
 
-    getDataUrl() {
+    async getDataUrl() {
       self.unselectAreas();
+      // If there are no regions, return null to erase the background.
+      if (self.regions.length === 0) {
+        return null;
+      }
+      // This is hacky but we need to make sure all
+      // regions are unselected AND the data url is
+      // up to date. There is a race condition between them
+      // so we need to wait a bit. So far this has reliably
+      // worked in testing.
+      self.regions.forEach(r => {
+        r.notifyDrawingFinished();
+      });
+      await delay(1000);
+      self.regions.forEach(r => {
+        r.notifyDrawingFinished();
+      });
+      await delay(1000);
       return self.dataUrl;
     },
 

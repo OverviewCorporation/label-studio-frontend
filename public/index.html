@@ -102,6 +102,7 @@
               "annotations:current",
               'show-new-ui',
               "hide-panels-override",
+              'left-align-labels',
               // "annotations:add-new",
               // "annotations:delete",
               // 'annotations:view-all',
@@ -140,10 +141,10 @@
             }
           },
           onSubmitAnnotation: (_, annotation) => {
-            onUpdateDataUrl?.(annotation.dataUrl);
+            onUpdateDataUrl?.(annotation.getDataUrl());
           },
           onUpdateAnnotation: (_, annotation) => {
-            console.log(annotation.dataUrl);
+            console.log(annotation.getDataUrl());
           },
           // history: annotationHistory,
         });
