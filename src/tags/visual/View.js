@@ -94,7 +94,7 @@ const Model = types
 
 const ViewModel = types.compose("ViewModel", TagAttrs, Model, VisibilityMixin, AnnotationMixin);
 
-const HtxView = observer(({ item }) => {
+const HtxView = observer(({ item, styles = {} }) => {
   let style = {};
 
   if (item.display === "inline") {
@@ -109,11 +109,19 @@ const HtxView = observer(({ item }) => {
     style["display"] = "none";
   }
 
-  return (
-    <div className={item.classname} style={style}>
-      {Tree.renderChildren(item)}
-    </div>
-  );
+  if (Object.keys(styles).length > 0) {
+    return (
+      <div className={item.classname} style={{ ...styles }}>
+        {Tree.renderChildren(item)}
+      </div>
+    );
+  } else {
+    return (
+      <div className={item.classname} style={{ ...style }}>
+        {Tree.renderChildren(item)}
+      </div>
+    );
+  }
 });
 
 Registry.addTag("view", ViewModel, HtxView);

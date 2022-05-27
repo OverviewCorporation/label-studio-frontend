@@ -1033,6 +1033,11 @@ export const Annotation = types
       self.dataUrl = url;
     },
 
+    getDataUrl() {
+      self.unselectAreas();
+      return self.dataUrl;
+    },
+
     acceptSuggestion(id) {
       const item = self.suggestions.get(id);
 
