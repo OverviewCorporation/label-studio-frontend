@@ -141,10 +141,10 @@
             }
           },
           onSubmitAnnotation: (_, annotation) => {
-            onUpdateDataUrl?.(annotation.dataUrl);
+            onUpdateDataUrl?.(annotation.getDataUrl());
           },
           onUpdateAnnotation: (_, annotation) => {
-            console.log(annotation.dataUrl);
+            console.log(annotation.getDataUrl());
           },
           // history: annotationHistory,
         });
