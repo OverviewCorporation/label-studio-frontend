@@ -120,7 +120,9 @@ class App extends Component {
     );
   }
 
-  _renderUI(root, as) {
+  _renderUI(root, as, store) {
+    const hasLabelLeftAligned = store.hasInterface('left-align-labels') ?? undefined;
+
     return (
       <>
         {!as.viewingAllAnnotations && !as.viewingAllPredictions && (
@@ -130,7 +132,7 @@ class App extends Component {
             onScrollCapture={this._notifyScroll}
           >
             <Elem name="annotation">
-              {<Annotation root={root} annotation={as.selected} />}
+              {<Annotation root={root} annotation={as.selected} hasLabelLeftAligned={hasLabelLeftAligned} />}
               {this.renderRelations(as.selected)}
             </Elem>
             {getRoot(as).hasInterface('infobar') && this._renderInfobar(as)}
@@ -203,7 +205,7 @@ class App extends Component {
     const mainContent = (
       <Block name="main-content">
         {as.validation === null
-          ? this._renderUI(as.selectedHistory?.root ?? root, as)
+          ? this._renderUI(as.selectedHistory?.root ?? root, as, store)
           : this.renderConfigValidationException(store)}
       </Block>
     );
