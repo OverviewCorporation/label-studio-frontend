@@ -1033,8 +1033,9 @@ export const Annotation = types
       self.dataUrl = url;
     },
 
-    getDataUrl() {
+    async getDataUrl() {
       self.unselectAreas();
+      await delay(700);
       return self.dataUrl;
     },
 
